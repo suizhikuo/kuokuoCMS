@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d740b5a8cd74458ea4f29c237d2f1fe6" Name="Diagram1">
+        <EntityTypeShape EntityType="kuokuoCMSContentDBModel.ContentAlbum" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kuokuoCMSContentDBModel.ContentAlbumPicture" Width="1.5" PointX="5.25" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kuokuoCMSContentDBModel.ContentArticle" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kuokuoCMSContentDBModel.ContentMap" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kuokuoCMSContentDBModel.ContentVideo" Width="1.5" PointX="3" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kuokuoCMSContentDBModel.DatabaseInformation" Width="1.5" PointX="7.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kuokuoCMSContentDBModel.SpecialTopic" Width="1.5" PointX="3" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="kuokuoCMSContentDBModel.SpecialTopicTypDictionary" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="kuokuoCMSContentDBModel.sysdiagram" Width="1.5" PointX="9.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="kuokuoCMSContentDBModel.ContentAlbumSpecialTopicMap" Width="1.5" PointX="5.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kuokuoCMSContentDBModel.ContentArticleSpecialTopicMap" Width="1.5" PointX="8.25" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kuokuoCMSContentDBModel.ContentMapSpecialTopicMap" Width="1.5" PointX="5.25" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="kuokuoCMSContentDBModel.ContentVideoSpecialTopicMap" Width="1.5" PointX="5.25" PointY="12.75" IsExpanded="true" />
+        <AssociationConnector Association="kuokuoCMSContentDBModel.FK_ContentAlbumPicture_ContentAlbum" ManuallyRouted="false" />
+        <AssociationConnector Association="kuokuoCMSContentDBModel.FK_ContentAlbumSpecialTopicMap_ContentAlbum" ManuallyRouted="false" />
+        <AssociationConnector Association="kuokuoCMSContentDBModel.FK_ContentArticleSpecialTopicMap_ContentArticle" ManuallyRouted="false" />
+        <AssociationConnector Association="kuokuoCMSContentDBModel.FK_ContentMapSpecialTopicMap_ContentMap" ManuallyRouted="false" />
+        <AssociationConnector Association="kuokuoCMSContentDBModel.FK_ContentVideoSpecialTopicMap_ContentVideo" ManuallyRouted="false" />
+        <AssociationConnector Association="kuokuoCMSContentDBModel.FK_Column_ColumnType" ManuallyRouted="false" />
+        <AssociationConnector Association="kuokuoCMSContentDBModel.FK_ContentAlbumSpecialTopicMap_SpecialTopic" ManuallyRouted="false" />
+        <AssociationConnector Association="kuokuoCMSContentDBModel.FK_ContentArticleSpecialTopicMap_SpecialTopic" ManuallyRouted="false" />
+        <AssociationConnector Association="kuokuoCMSContentDBModel.FK_ContentMapSpecialTopicMap_SpecialTopic" ManuallyRouted="false" />
+        <AssociationConnector Association="kuokuoCMSContentDBModel.FK_ContentVideoSpecialTopicMap_SpecialTopic1" ManuallyRouted="false" />
+        <AssociationConnector Association="kuokuoCMSContentDBModel.FK_SpecialTopic_SpecialTopic" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

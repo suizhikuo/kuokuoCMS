@@ -1,0 +1,98 @@
+@model Model.SpecialTopic
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+	<legend>SpecialTopic</legend>
+	<dl>
+		<dt>
+			@Html.DisplayNameFor(model => model.SpecialTopic2.Name)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.SpecialTopic2.Name)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.SpecialTopicTypDictionary.Name)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.SpecialTopicTypDictionary.Name)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Name)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Name)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Description)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Description)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.IsDispaly)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.IsDispaly)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.SortNumber)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.SortNumber)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.CreateUser)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.CreateUser)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.CreateDatetime)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.CreateDatetime)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.LastUpdateUser)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.LastUpdateUser)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.LastUpdateDatetime)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.LastUpdateDatetime)
+		</dd>
+
+	</dl>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

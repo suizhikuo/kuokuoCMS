@@ -1,0 +1,1144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="kuokuoCMSContentDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ContentAlbum">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="SortNumber" Type="int" />
+          <Property Name="CreateUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateDatetime" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastUpdateDatetime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ContentAlbumPicture">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ContentAlbumID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PictureURI" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PictureExtensionName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="SortNumber" Type="int" />
+          <Property Name="CreateUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateDatetime" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastUpdateDatetime" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: 表/视图“kuokuoCMSContentDB.dbo.ContentAlbumSpecialTopicMap”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="ContentAlbumSpecialTopicMap">
+          <Key>
+            <PropertyRef Name="SpecialTopicID" />
+            <PropertyRef Name="ContentAlbumID" />
+            <PropertyRef Name="CreateUser" />
+            <PropertyRef Name="CreateDatetime" />
+          </Key>
+          <Property Name="SpecialTopicID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ContentAlbumID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="SortNumber" Type="int" />
+          <Property Name="CreateUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateDatetime" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastUpdateDatetime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ContentArticle">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="SortNumber" Type="int" />
+          <Property Name="CreateUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateDatetime" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastUpdateDatetime" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: 表/视图“kuokuoCMSContentDB.dbo.ContentArticleSpecialTopicMap”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="ContentArticleSpecialTopicMap">
+          <Key>
+            <PropertyRef Name="SpecialTopicID" />
+            <PropertyRef Name="ContentArticleID" />
+            <PropertyRef Name="CreateUser" />
+            <PropertyRef Name="CreateDatetime" />
+          </Key>
+          <Property Name="SpecialTopicID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ContentArticleID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="SortNumber" Type="int" />
+          <Property Name="CreateUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateDatetime" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastUpdateDatetime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ContentMap">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Title" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="SortNumber" Type="int" />
+          <Property Name="CreateUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateDatetime" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastUpdateDatetime" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: 表/视图“kuokuoCMSContentDB.dbo.ContentMapSpecialTopicMap”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="ContentMapSpecialTopicMap">
+          <Key>
+            <PropertyRef Name="SpecialTopicD" />
+            <PropertyRef Name="ContentMapID" />
+            <PropertyRef Name="CreateUser" />
+            <PropertyRef Name="CreateDatetime" />
+          </Key>
+          <Property Name="SpecialTopicD" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ContentMapID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="SortNumber" Type="int" />
+          <Property Name="CreateUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateDatetime" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastUpdateDatetime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ContentVideo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="VideoURI" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="VideoExtensionName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="SortNumber" Type="int" />
+          <Property Name="CreateUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateDatetime" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastUpdateDatetime" Type="datetime" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: 表/视图“kuokuoCMSContentDB.dbo.ContentVideoSpecialTopicMap”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="ContentVideoSpecialTopicMap">
+          <Key>
+            <PropertyRef Name="SpecialTopicID" />
+            <PropertyRef Name="ContentVideoID" />
+            <PropertyRef Name="CreateUser" />
+            <PropertyRef Name="CreateDatetime" />
+          </Key>
+          <Property Name="SpecialTopicID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ContentVideoID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="SortNumber" Type="int" />
+          <Property Name="CreateUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateDatetime" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastUpdateDatetime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DatabaseInformation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Object" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SpecialTopic">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ParentSpecialTopicID" Type="uniqueidentifier" />
+          <Property Name="SpecialTopicTypeID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="IsDispaly" Type="bit" Nullable="false" />
+          <Property Name="SortNumber" Type="int" />
+          <Property Name="CreateUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateDatetime" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastUpdateDatetime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SpecialTopicTypDictionary">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="100" />
+          <Property Name="SortNumber" Type="int" />
+          <Property Name="CreateUser" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CreateDatetime" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdateUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastUpdateDatetime" Type="datetime" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_Column_ColumnType">
+          <End Role="SpecialTopicTypDictionary" Type="Self.SpecialTopicTypDictionary" Multiplicity="1" />
+          <End Role="SpecialTopic" Type="Self.SpecialTopic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpecialTopicTypDictionary">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SpecialTopic">
+              <PropertyRef Name="SpecialTopicTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContentAlbumPicture_ContentAlbum">
+          <End Role="ContentAlbum" Type="Self.ContentAlbum" Multiplicity="1" />
+          <End Role="ContentAlbumPicture" Type="Self.ContentAlbumPicture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContentAlbum">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContentAlbumPicture">
+              <PropertyRef Name="ContentAlbumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContentAlbumSpecialTopicMap_ContentAlbum">
+          <End Role="ContentAlbum" Type="Self.ContentAlbum" Multiplicity="1" />
+          <End Role="ContentAlbumSpecialTopicMap" Type="Self.ContentAlbumSpecialTopicMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContentAlbum">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContentAlbumSpecialTopicMap">
+              <PropertyRef Name="ContentAlbumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContentAlbumSpecialTopicMap_SpecialTopic">
+          <End Role="SpecialTopic" Type="Self.SpecialTopic" Multiplicity="1" />
+          <End Role="ContentAlbumSpecialTopicMap" Type="Self.ContentAlbumSpecialTopicMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpecialTopic">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContentAlbumSpecialTopicMap">
+              <PropertyRef Name="SpecialTopicID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContentArticleSpecialTopicMap_ContentArticle">
+          <End Role="ContentArticle" Type="Self.ContentArticle" Multiplicity="1" />
+          <End Role="ContentArticleSpecialTopicMap" Type="Self.ContentArticleSpecialTopicMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContentArticle">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContentArticleSpecialTopicMap">
+              <PropertyRef Name="ContentArticleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContentArticleSpecialTopicMap_SpecialTopic">
+          <End Role="SpecialTopic" Type="Self.SpecialTopic" Multiplicity="1" />
+          <End Role="ContentArticleSpecialTopicMap" Type="Self.ContentArticleSpecialTopicMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpecialTopic">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContentArticleSpecialTopicMap">
+              <PropertyRef Name="SpecialTopicID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContentMapSpecialTopicMap_ContentMap">
+          <End Role="ContentMap" Type="Self.ContentMap" Multiplicity="1" />
+          <End Role="ContentMapSpecialTopicMap" Type="Self.ContentMapSpecialTopicMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContentMap">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContentMapSpecialTopicMap">
+              <PropertyRef Name="ContentMapID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContentMapSpecialTopicMap_SpecialTopic">
+          <End Role="SpecialTopic" Type="Self.SpecialTopic" Multiplicity="1" />
+          <End Role="ContentMapSpecialTopicMap" Type="Self.ContentMapSpecialTopicMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpecialTopic">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContentMapSpecialTopicMap">
+              <PropertyRef Name="SpecialTopicD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContentVideoSpecialTopicMap_ContentVideo">
+          <End Role="ContentVideo" Type="Self.ContentVideo" Multiplicity="1" />
+          <End Role="ContentVideoSpecialTopicMap" Type="Self.ContentVideoSpecialTopicMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContentVideo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContentVideoSpecialTopicMap">
+              <PropertyRef Name="ContentVideoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContentVideoSpecialTopicMap_SpecialTopic1">
+          <End Role="SpecialTopic" Type="Self.SpecialTopic" Multiplicity="1" />
+          <End Role="ContentVideoSpecialTopicMap" Type="Self.ContentVideoSpecialTopicMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpecialTopic">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContentVideoSpecialTopicMap">
+              <PropertyRef Name="SpecialTopicID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SpecialTopic_SpecialTopic">
+          <End Role="SpecialTopic" Type="Self.SpecialTopic" Multiplicity="0..1" />
+          <End Role="SpecialTopic1" Type="Self.SpecialTopic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpecialTopic">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SpecialTopic1">
+              <PropertyRef Name="ParentSpecialTopicID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="kuokuoCMSContentDBModelStoreContainer">
+          <EntitySet Name="ContentAlbum" EntityType="Self.ContentAlbum" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="ContentAlbumPicture" EntityType="Self.ContentAlbumPicture" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="ContentArticle" EntityType="Self.ContentArticle" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="ContentMap" EntityType="Self.ContentMap" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="ContentVideo" EntityType="Self.ContentVideo" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="DatabaseInformation" EntityType="Self.DatabaseInformation" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="SpecialTopic" EntityType="Self.SpecialTopic" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="SpecialTopicTypDictionary" EntityType="Self.SpecialTopicTypDictionary" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" p3:Type="Tables" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="ContentAlbumSpecialTopicMap" EntityType="Self.ContentAlbumSpecialTopicMap" p3:Type="Tables" p3:Schema="dbo" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+            <DefiningQuery>SELECT 
+[ContentAlbumSpecialTopicMap].[SpecialTopicID] AS [SpecialTopicID], 
+[ContentAlbumSpecialTopicMap].[ContentAlbumID] AS [ContentAlbumID], 
+[ContentAlbumSpecialTopicMap].[Description] AS [Description], 
+[ContentAlbumSpecialTopicMap].[SortNumber] AS [SortNumber], 
+[ContentAlbumSpecialTopicMap].[CreateUser] AS [CreateUser], 
+[ContentAlbumSpecialTopicMap].[CreateDatetime] AS [CreateDatetime], 
+[ContentAlbumSpecialTopicMap].[LastUpdateUser] AS [LastUpdateUser], 
+[ContentAlbumSpecialTopicMap].[LastUpdateDatetime] AS [LastUpdateDatetime]
+FROM [dbo].[ContentAlbumSpecialTopicMap] AS [ContentAlbumSpecialTopicMap]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ContentArticleSpecialTopicMap" EntityType="Self.ContentArticleSpecialTopicMap" p3:Type="Tables" p3:Schema="dbo" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+            <DefiningQuery>SELECT 
+[ContentArticleSpecialTopicMap].[SpecialTopicID] AS [SpecialTopicID], 
+[ContentArticleSpecialTopicMap].[ContentArticleID] AS [ContentArticleID], 
+[ContentArticleSpecialTopicMap].[Description] AS [Description], 
+[ContentArticleSpecialTopicMap].[SortNumber] AS [SortNumber], 
+[ContentArticleSpecialTopicMap].[CreateUser] AS [CreateUser], 
+[ContentArticleSpecialTopicMap].[CreateDatetime] AS [CreateDatetime], 
+[ContentArticleSpecialTopicMap].[LastUpdateUser] AS [LastUpdateUser], 
+[ContentArticleSpecialTopicMap].[LastUpdateDatetime] AS [LastUpdateDatetime]
+FROM [dbo].[ContentArticleSpecialTopicMap] AS [ContentArticleSpecialTopicMap]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ContentMapSpecialTopicMap" EntityType="Self.ContentMapSpecialTopicMap" p3:Type="Tables" p3:Schema="dbo" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+            <DefiningQuery>SELECT 
+[ContentMapSpecialTopicMap].[SpecialTopicD] AS [SpecialTopicD], 
+[ContentMapSpecialTopicMap].[ContentMapID] AS [ContentMapID], 
+[ContentMapSpecialTopicMap].[Description] AS [Description], 
+[ContentMapSpecialTopicMap].[SortNumber] AS [SortNumber], 
+[ContentMapSpecialTopicMap].[CreateUser] AS [CreateUser], 
+[ContentMapSpecialTopicMap].[CreateDatetime] AS [CreateDatetime], 
+[ContentMapSpecialTopicMap].[LastUpdateUser] AS [LastUpdateUser], 
+[ContentMapSpecialTopicMap].[LastUpdateDatetime] AS [LastUpdateDatetime]
+FROM [dbo].[ContentMapSpecialTopicMap] AS [ContentMapSpecialTopicMap]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ContentVideoSpecialTopicMap" EntityType="Self.ContentVideoSpecialTopicMap" p3:Type="Tables" p3:Schema="dbo" xmlns:p3="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator">
+            <DefiningQuery>SELECT 
+[ContentVideoSpecialTopicMap].[SpecialTopicID] AS [SpecialTopicID], 
+[ContentVideoSpecialTopicMap].[ContentVideoID] AS [ContentVideoID], 
+[ContentVideoSpecialTopicMap].[Description] AS [Description], 
+[ContentVideoSpecialTopicMap].[SortNumber] AS [SortNumber], 
+[ContentVideoSpecialTopicMap].[CreateUser] AS [CreateUser], 
+[ContentVideoSpecialTopicMap].[CreateDatetime] AS [CreateDatetime], 
+[ContentVideoSpecialTopicMap].[LastUpdateUser] AS [LastUpdateUser], 
+[ContentVideoSpecialTopicMap].[LastUpdateDatetime] AS [LastUpdateDatetime]
+FROM [dbo].[ContentVideoSpecialTopicMap] AS [ContentVideoSpecialTopicMap]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Column_ColumnType" Association="Self.FK_Column_ColumnType">
+            <End Role="SpecialTopicTypDictionary" EntitySet="SpecialTopicTypDictionary" />
+            <End Role="SpecialTopic" EntitySet="SpecialTopic" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContentAlbumPicture_ContentAlbum" Association="Self.FK_ContentAlbumPicture_ContentAlbum">
+            <End Role="ContentAlbum" EntitySet="ContentAlbum" />
+            <End Role="ContentAlbumPicture" EntitySet="ContentAlbumPicture" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContentAlbumSpecialTopicMap_ContentAlbum" Association="Self.FK_ContentAlbumSpecialTopicMap_ContentAlbum">
+            <End Role="ContentAlbum" EntitySet="ContentAlbum" />
+            <End Role="ContentAlbumSpecialTopicMap" EntitySet="ContentAlbumSpecialTopicMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContentAlbumSpecialTopicMap_SpecialTopic" Association="Self.FK_ContentAlbumSpecialTopicMap_SpecialTopic">
+            <End Role="SpecialTopic" EntitySet="SpecialTopic" />
+            <End Role="ContentAlbumSpecialTopicMap" EntitySet="ContentAlbumSpecialTopicMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContentArticleSpecialTopicMap_ContentArticle" Association="Self.FK_ContentArticleSpecialTopicMap_ContentArticle">
+            <End Role="ContentArticle" EntitySet="ContentArticle" />
+            <End Role="ContentArticleSpecialTopicMap" EntitySet="ContentArticleSpecialTopicMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContentArticleSpecialTopicMap_SpecialTopic" Association="Self.FK_ContentArticleSpecialTopicMap_SpecialTopic">
+            <End Role="SpecialTopic" EntitySet="SpecialTopic" />
+            <End Role="ContentArticleSpecialTopicMap" EntitySet="ContentArticleSpecialTopicMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContentMapSpecialTopicMap_ContentMap" Association="Self.FK_ContentMapSpecialTopicMap_ContentMap">
+            <End Role="ContentMap" EntitySet="ContentMap" />
+            <End Role="ContentMapSpecialTopicMap" EntitySet="ContentMapSpecialTopicMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContentMapSpecialTopicMap_SpecialTopic" Association="Self.FK_ContentMapSpecialTopicMap_SpecialTopic">
+            <End Role="SpecialTopic" EntitySet="SpecialTopic" />
+            <End Role="ContentMapSpecialTopicMap" EntitySet="ContentMapSpecialTopicMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContentVideoSpecialTopicMap_ContentVideo" Association="Self.FK_ContentVideoSpecialTopicMap_ContentVideo">
+            <End Role="ContentVideo" EntitySet="ContentVideo" />
+            <End Role="ContentVideoSpecialTopicMap" EntitySet="ContentVideoSpecialTopicMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContentVideoSpecialTopicMap_SpecialTopic1" Association="Self.FK_ContentVideoSpecialTopicMap_SpecialTopic1">
+            <End Role="SpecialTopic" EntitySet="SpecialTopic" />
+            <End Role="ContentVideoSpecialTopicMap" EntitySet="ContentVideoSpecialTopicMap" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SpecialTopic_SpecialTopic" Association="Self.FK_SpecialTopic_SpecialTopic">
+            <End Role="SpecialTopic" EntitySet="SpecialTopic" />
+            <End Role="SpecialTopic1" EntitySet="SpecialTopic" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="kuokuoCMSContentDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ContentAlbum">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SortNumber" Type="Int32" />
+          <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateDatetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdateDatetime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ContentAlbumPictures" Relationship="Self.FK_ContentAlbumPicture_ContentAlbum" FromRole="ContentAlbum" ToRole="ContentAlbumPicture" />
+          <NavigationProperty Name="ContentAlbumSpecialTopicMaps" Relationship="Self.FK_ContentAlbumSpecialTopicMap_ContentAlbum" FromRole="ContentAlbum" ToRole="ContentAlbumSpecialTopicMap" />
+        </EntityType>
+        <EntityType Name="ContentAlbumPicture">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="ContentAlbumID" Type="Guid" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PictureURI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PictureExtensionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SortNumber" Type="Int32" />
+          <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateDatetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdateDatetime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ContentAlbum" Relationship="Self.FK_ContentAlbumPicture_ContentAlbum" FromRole="ContentAlbumPicture" ToRole="ContentAlbum" />
+        </EntityType>
+        <EntityType Name="ContentArticle">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SortNumber" Type="Int32" />
+          <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateDatetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdateDatetime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ContentArticleSpecialTopicMaps" Relationship="Self.FK_ContentArticleSpecialTopicMap_ContentArticle" FromRole="ContentArticle" ToRole="ContentArticleSpecialTopicMap" />
+        </EntityType>
+        <EntityType Name="ContentMap">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SortNumber" Type="Int32" />
+          <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateDatetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdateDatetime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ContentMapSpecialTopicMaps" Relationship="Self.FK_ContentMapSpecialTopicMap_ContentMap" FromRole="ContentMap" ToRole="ContentMapSpecialTopicMap" />
+        </EntityType>
+        <EntityType Name="ContentVideo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VideoURI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VideoExtensionName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SortNumber" Type="Int32" />
+          <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateDatetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdateDatetime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ContentVideoSpecialTopicMaps" Relationship="Self.FK_ContentVideoSpecialTopicMap_ContentVideo" FromRole="ContentVideo" ToRole="ContentVideoSpecialTopicMap" />
+        </EntityType>
+        <EntityType Name="DatabaseInformation">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Object" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SpecialTopic">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="ParentSpecialTopicID" Type="Guid" />
+          <Property Name="SpecialTopicTypeID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IsDispaly" Type="Boolean" Nullable="false" />
+          <Property Name="SortNumber" Type="Int32" />
+          <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateDatetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdateDatetime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="SpecialTopicTypDictionary" Relationship="Self.FK_Column_ColumnType" FromRole="SpecialTopic" ToRole="SpecialTopicTypDictionary" />
+          <NavigationProperty Name="ContentAlbumSpecialTopicMaps" Relationship="Self.FK_ContentAlbumSpecialTopicMap_SpecialTopic" FromRole="SpecialTopic" ToRole="ContentAlbumSpecialTopicMap" />
+          <NavigationProperty Name="ContentArticleSpecialTopicMaps" Relationship="Self.FK_ContentArticleSpecialTopicMap_SpecialTopic" FromRole="SpecialTopic" ToRole="ContentArticleSpecialTopicMap" />
+          <NavigationProperty Name="ContentMapSpecialTopicMaps" Relationship="Self.FK_ContentMapSpecialTopicMap_SpecialTopic" FromRole="SpecialTopic" ToRole="ContentMapSpecialTopicMap" />
+          <NavigationProperty Name="ContentVideoSpecialTopicMaps" Relationship="Self.FK_ContentVideoSpecialTopicMap_SpecialTopic1" FromRole="SpecialTopic" ToRole="ContentVideoSpecialTopicMap" />
+          <NavigationProperty Name="SpecialTopic1" Relationship="Self.FK_SpecialTopic_SpecialTopic" FromRole="SpecialTopic" ToRole="SpecialTopic1" />
+          <NavigationProperty Name="SpecialTopic2" Relationship="Self.FK_SpecialTopic_SpecialTopic" FromRole="SpecialTopic1" ToRole="SpecialTopic" />
+        </EntityType>
+        <EntityType Name="SpecialTopicTypDictionary">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SortNumber" Type="Int32" />
+          <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateDatetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdateDatetime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="SpecialTopics" Relationship="Self.FK_Column_ColumnType" FromRole="SpecialTopicTypDictionary" ToRole="SpecialTopic" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ContentAlbumSpecialTopicMap">
+          <Key>
+            <PropertyRef Name="SpecialTopicID" />
+            <PropertyRef Name="ContentAlbumID" />
+            <PropertyRef Name="CreateUser" />
+            <PropertyRef Name="CreateDatetime" />
+          </Key>
+          <Property Name="SpecialTopicID" Type="Guid" Nullable="false" />
+          <Property Name="ContentAlbumID" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SortNumber" Type="Int32" />
+          <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateDatetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdateDatetime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ContentAlbum" Relationship="Self.FK_ContentAlbumSpecialTopicMap_ContentAlbum" FromRole="ContentAlbumSpecialTopicMap" ToRole="ContentAlbum" />
+          <NavigationProperty Name="SpecialTopic" Relationship="Self.FK_ContentAlbumSpecialTopicMap_SpecialTopic" FromRole="ContentAlbumSpecialTopicMap" ToRole="SpecialTopic" />
+        </EntityType>
+        <EntityType Name="ContentArticleSpecialTopicMap">
+          <Key>
+            <PropertyRef Name="SpecialTopicID" />
+            <PropertyRef Name="ContentArticleID" />
+            <PropertyRef Name="CreateUser" />
+            <PropertyRef Name="CreateDatetime" />
+          </Key>
+          <Property Name="SpecialTopicID" Type="Guid" Nullable="false" />
+          <Property Name="ContentArticleID" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SortNumber" Type="Int32" />
+          <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateDatetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdateDatetime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ContentArticle" Relationship="Self.FK_ContentArticleSpecialTopicMap_ContentArticle" FromRole="ContentArticleSpecialTopicMap" ToRole="ContentArticle" />
+          <NavigationProperty Name="SpecialTopic" Relationship="Self.FK_ContentArticleSpecialTopicMap_SpecialTopic" FromRole="ContentArticleSpecialTopicMap" ToRole="SpecialTopic" />
+        </EntityType>
+        <EntityType Name="ContentMapSpecialTopicMap">
+          <Key>
+            <PropertyRef Name="SpecialTopicD" />
+            <PropertyRef Name="ContentMapID" />
+            <PropertyRef Name="CreateUser" />
+            <PropertyRef Name="CreateDatetime" />
+          </Key>
+          <Property Name="SpecialTopicD" Type="Guid" Nullable="false" />
+          <Property Name="ContentMapID" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SortNumber" Type="Int32" />
+          <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateDatetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdateDatetime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ContentMap" Relationship="Self.FK_ContentMapSpecialTopicMap_ContentMap" FromRole="ContentMapSpecialTopicMap" ToRole="ContentMap" />
+          <NavigationProperty Name="SpecialTopic" Relationship="Self.FK_ContentMapSpecialTopicMap_SpecialTopic" FromRole="ContentMapSpecialTopicMap" ToRole="SpecialTopic" />
+        </EntityType>
+        <EntityType Name="ContentVideoSpecialTopicMap">
+          <Key>
+            <PropertyRef Name="SpecialTopicID" />
+            <PropertyRef Name="ContentVideoID" />
+            <PropertyRef Name="CreateUser" />
+            <PropertyRef Name="CreateDatetime" />
+          </Key>
+          <Property Name="SpecialTopicID" Type="Guid" Nullable="false" />
+          <Property Name="ContentVideoID" Type="Guid" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SortNumber" Type="Int32" />
+          <Property Name="CreateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreateDatetime" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdateUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdateDatetime" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="ContentVideo" Relationship="Self.FK_ContentVideoSpecialTopicMap_ContentVideo" FromRole="ContentVideoSpecialTopicMap" ToRole="ContentVideo" />
+          <NavigationProperty Name="SpecialTopic" Relationship="Self.FK_ContentVideoSpecialTopicMap_SpecialTopic1" FromRole="ContentVideoSpecialTopicMap" ToRole="SpecialTopic" />
+        </EntityType>
+        <Association Name="FK_ContentAlbumPicture_ContentAlbum">
+          <End Role="ContentAlbum" Type="Self.ContentAlbum" Multiplicity="1" />
+          <End Role="ContentAlbumPicture" Type="Self.ContentAlbumPicture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContentAlbum">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContentAlbumPicture">
+              <PropertyRef Name="ContentAlbumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContentAlbumSpecialTopicMap_ContentAlbum">
+          <End Role="ContentAlbum" Type="Self.ContentAlbum" Multiplicity="1" />
+          <End Role="ContentAlbumSpecialTopicMap" Type="Self.ContentAlbumSpecialTopicMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContentAlbum">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContentAlbumSpecialTopicMap">
+              <PropertyRef Name="ContentAlbumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContentArticleSpecialTopicMap_ContentArticle">
+          <End Role="ContentArticle" Type="Self.ContentArticle" Multiplicity="1" />
+          <End Role="ContentArticleSpecialTopicMap" Type="Self.ContentArticleSpecialTopicMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContentArticle">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContentArticleSpecialTopicMap">
+              <PropertyRef Name="ContentArticleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContentMapSpecialTopicMap_ContentMap">
+          <End Role="ContentMap" Type="Self.ContentMap" Multiplicity="1" />
+          <End Role="ContentMapSpecialTopicMap" Type="Self.ContentMapSpecialTopicMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContentMap">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContentMapSpecialTopicMap">
+              <PropertyRef Name="ContentMapID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContentVideoSpecialTopicMap_ContentVideo">
+          <End Role="ContentVideo" Type="Self.ContentVideo" Multiplicity="1" />
+          <End Role="ContentVideoSpecialTopicMap" Type="Self.ContentVideoSpecialTopicMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ContentVideo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContentVideoSpecialTopicMap">
+              <PropertyRef Name="ContentVideoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Column_ColumnType">
+          <End Role="SpecialTopicTypDictionary" Type="Self.SpecialTopicTypDictionary" Multiplicity="1" />
+          <End Role="SpecialTopic" Type="Self.SpecialTopic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpecialTopicTypDictionary">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SpecialTopic">
+              <PropertyRef Name="SpecialTopicTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContentAlbumSpecialTopicMap_SpecialTopic">
+          <End Role="SpecialTopic" Type="Self.SpecialTopic" Multiplicity="1" />
+          <End Role="ContentAlbumSpecialTopicMap" Type="Self.ContentAlbumSpecialTopicMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpecialTopic">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContentAlbumSpecialTopicMap">
+              <PropertyRef Name="SpecialTopicID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContentArticleSpecialTopicMap_SpecialTopic">
+          <End Role="SpecialTopic" Type="Self.SpecialTopic" Multiplicity="1" />
+          <End Role="ContentArticleSpecialTopicMap" Type="Self.ContentArticleSpecialTopicMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpecialTopic">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContentArticleSpecialTopicMap">
+              <PropertyRef Name="SpecialTopicID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContentMapSpecialTopicMap_SpecialTopic">
+          <End Role="SpecialTopic" Type="Self.SpecialTopic" Multiplicity="1" />
+          <End Role="ContentMapSpecialTopicMap" Type="Self.ContentMapSpecialTopicMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpecialTopic">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContentMapSpecialTopicMap">
+              <PropertyRef Name="SpecialTopicD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContentVideoSpecialTopicMap_SpecialTopic1">
+          <End Role="SpecialTopic" Type="Self.SpecialTopic" Multiplicity="1" />
+          <End Role="ContentVideoSpecialTopicMap" Type="Self.ContentVideoSpecialTopicMap" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpecialTopic">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ContentVideoSpecialTopicMap">
+              <PropertyRef Name="SpecialTopicID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SpecialTopic_SpecialTopic">
+          <End Role="SpecialTopic" Type="Self.SpecialTopic" Multiplicity="0..1" />
+          <End Role="SpecialTopic1" Type="Self.SpecialTopic" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SpecialTopic">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SpecialTopic1">
+              <PropertyRef Name="ParentSpecialTopicID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="kuokuoCMSContentDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ContentAlbums" EntityType="Self.ContentAlbum" />
+          <EntitySet Name="ContentAlbumPictures" EntityType="Self.ContentAlbumPicture" />
+          <EntitySet Name="ContentArticles" EntityType="Self.ContentArticle" />
+          <EntitySet Name="ContentMaps" EntityType="Self.ContentMap" />
+          <EntitySet Name="ContentVideos" EntityType="Self.ContentVideo" />
+          <EntitySet Name="DatabaseInformations" EntityType="Self.DatabaseInformation" />
+          <EntitySet Name="SpecialTopics" EntityType="Self.SpecialTopic" />
+          <EntitySet Name="SpecialTopicTypDictionaries" EntityType="Self.SpecialTopicTypDictionary" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="ContentAlbumSpecialTopicMaps" EntityType="Self.ContentAlbumSpecialTopicMap" />
+          <EntitySet Name="ContentArticleSpecialTopicMaps" EntityType="Self.ContentArticleSpecialTopicMap" />
+          <EntitySet Name="ContentMapSpecialTopicMaps" EntityType="Self.ContentMapSpecialTopicMap" />
+          <EntitySet Name="ContentVideoSpecialTopicMaps" EntityType="Self.ContentVideoSpecialTopicMap" />
+          <AssociationSet Name="FK_ContentAlbumPicture_ContentAlbum" Association="Self.FK_ContentAlbumPicture_ContentAlbum">
+            <End Role="ContentAlbum" EntitySet="ContentAlbums" />
+            <End Role="ContentAlbumPicture" EntitySet="ContentAlbumPictures" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContentAlbumSpecialTopicMap_ContentAlbum" Association="Self.FK_ContentAlbumSpecialTopicMap_ContentAlbum">
+            <End Role="ContentAlbum" EntitySet="ContentAlbums" />
+            <End Role="ContentAlbumSpecialTopicMap" EntitySet="ContentAlbumSpecialTopicMaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContentArticleSpecialTopicMap_ContentArticle" Association="Self.FK_ContentArticleSpecialTopicMap_ContentArticle">
+            <End Role="ContentArticle" EntitySet="ContentArticles" />
+            <End Role="ContentArticleSpecialTopicMap" EntitySet="ContentArticleSpecialTopicMaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContentMapSpecialTopicMap_ContentMap" Association="Self.FK_ContentMapSpecialTopicMap_ContentMap">
+            <End Role="ContentMap" EntitySet="ContentMaps" />
+            <End Role="ContentMapSpecialTopicMap" EntitySet="ContentMapSpecialTopicMaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContentVideoSpecialTopicMap_ContentVideo" Association="Self.FK_ContentVideoSpecialTopicMap_ContentVideo">
+            <End Role="ContentVideo" EntitySet="ContentVideos" />
+            <End Role="ContentVideoSpecialTopicMap" EntitySet="ContentVideoSpecialTopicMaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Column_ColumnType" Association="Self.FK_Column_ColumnType">
+            <End Role="SpecialTopicTypDictionary" EntitySet="SpecialTopicTypDictionaries" />
+            <End Role="SpecialTopic" EntitySet="SpecialTopics" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContentAlbumSpecialTopicMap_SpecialTopic" Association="Self.FK_ContentAlbumSpecialTopicMap_SpecialTopic">
+            <End Role="SpecialTopic" EntitySet="SpecialTopics" />
+            <End Role="ContentAlbumSpecialTopicMap" EntitySet="ContentAlbumSpecialTopicMaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContentArticleSpecialTopicMap_SpecialTopic" Association="Self.FK_ContentArticleSpecialTopicMap_SpecialTopic">
+            <End Role="SpecialTopic" EntitySet="SpecialTopics" />
+            <End Role="ContentArticleSpecialTopicMap" EntitySet="ContentArticleSpecialTopicMaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContentMapSpecialTopicMap_SpecialTopic" Association="Self.FK_ContentMapSpecialTopicMap_SpecialTopic">
+            <End Role="SpecialTopic" EntitySet="SpecialTopics" />
+            <End Role="ContentMapSpecialTopicMap" EntitySet="ContentMapSpecialTopicMaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContentVideoSpecialTopicMap_SpecialTopic1" Association="Self.FK_ContentVideoSpecialTopicMap_SpecialTopic1">
+            <End Role="SpecialTopic" EntitySet="SpecialTopics" />
+            <End Role="ContentVideoSpecialTopicMap" EntitySet="ContentVideoSpecialTopicMaps" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SpecialTopic_SpecialTopic" Association="Self.FK_SpecialTopic_SpecialTopic">
+            <End Role="SpecialTopic" EntitySet="SpecialTopics" />
+            <End Role="SpecialTopic1" EntitySet="SpecialTopics" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(kuokuoCMSContentDBModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(kuokuoCMSContentDBModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="kuokuoCMSContentDBModelStoreContainer" CdmEntityContainer="kuokuoCMSContentDBEntities">
+          <EntitySetMapping Name="ContentAlbums">
+            <EntityTypeMapping TypeName="kuokuoCMSContentDBModel.ContentAlbum">
+              <MappingFragment StoreEntitySet="ContentAlbum">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SortNumber" ColumnName="SortNumber" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDatetime" ColumnName="CreateDatetime" />
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="LastUpdateDatetime" ColumnName="LastUpdateDatetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentAlbumPictures">
+            <EntityTypeMapping TypeName="kuokuoCMSContentDBModel.ContentAlbumPicture">
+              <MappingFragment StoreEntitySet="ContentAlbumPicture">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ContentAlbumID" ColumnName="ContentAlbumID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="PictureURI" ColumnName="PictureURI" />
+                <ScalarProperty Name="PictureExtensionName" ColumnName="PictureExtensionName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SortNumber" ColumnName="SortNumber" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDatetime" ColumnName="CreateDatetime" />
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="LastUpdateDatetime" ColumnName="LastUpdateDatetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentArticles">
+            <EntityTypeMapping TypeName="kuokuoCMSContentDBModel.ContentArticle">
+              <MappingFragment StoreEntitySet="ContentArticle">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SortNumber" ColumnName="SortNumber" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDatetime" ColumnName="CreateDatetime" />
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="LastUpdateDatetime" ColumnName="LastUpdateDatetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentMaps">
+            <EntityTypeMapping TypeName="kuokuoCMSContentDBModel.ContentMap">
+              <MappingFragment StoreEntitySet="ContentMap">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SortNumber" ColumnName="SortNumber" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDatetime" ColumnName="CreateDatetime" />
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="LastUpdateDatetime" ColumnName="LastUpdateDatetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentVideos">
+            <EntityTypeMapping TypeName="kuokuoCMSContentDBModel.ContentVideo">
+              <MappingFragment StoreEntitySet="ContentVideo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="VideoURI" ColumnName="VideoURI" />
+                <ScalarProperty Name="VideoExtensionName" ColumnName="VideoExtensionName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SortNumber" ColumnName="SortNumber" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDatetime" ColumnName="CreateDatetime" />
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="LastUpdateDatetime" ColumnName="LastUpdateDatetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DatabaseInformations">
+            <EntityTypeMapping TypeName="kuokuoCMSContentDBModel.DatabaseInformation">
+              <MappingFragment StoreEntitySet="DatabaseInformation">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Object" ColumnName="Object" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SpecialTopics">
+            <EntityTypeMapping TypeName="kuokuoCMSContentDBModel.SpecialTopic">
+              <MappingFragment StoreEntitySet="SpecialTopic">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ParentSpecialTopicID" ColumnName="ParentSpecialTopicID" />
+                <ScalarProperty Name="SpecialTopicTypeID" ColumnName="SpecialTopicTypeID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="IsDispaly" ColumnName="IsDispaly" />
+                <ScalarProperty Name="SortNumber" ColumnName="SortNumber" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDatetime" ColumnName="CreateDatetime" />
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="LastUpdateDatetime" ColumnName="LastUpdateDatetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SpecialTopicTypDictionaries">
+            <EntityTypeMapping TypeName="kuokuoCMSContentDBModel.SpecialTopicTypDictionary">
+              <MappingFragment StoreEntitySet="SpecialTopicTypDictionary">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SortNumber" ColumnName="SortNumber" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDatetime" ColumnName="CreateDatetime" />
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="LastUpdateDatetime" ColumnName="LastUpdateDatetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="kuokuoCMSContentDBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentAlbumSpecialTopicMaps">
+            <EntityTypeMapping TypeName="kuokuoCMSContentDBModel.ContentAlbumSpecialTopicMap">
+              <MappingFragment StoreEntitySet="ContentAlbumSpecialTopicMap">
+                <ScalarProperty Name="SpecialTopicID" ColumnName="SpecialTopicID" />
+                <ScalarProperty Name="ContentAlbumID" ColumnName="ContentAlbumID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SortNumber" ColumnName="SortNumber" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDatetime" ColumnName="CreateDatetime" />
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="LastUpdateDatetime" ColumnName="LastUpdateDatetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentArticleSpecialTopicMaps">
+            <EntityTypeMapping TypeName="kuokuoCMSContentDBModel.ContentArticleSpecialTopicMap">
+              <MappingFragment StoreEntitySet="ContentArticleSpecialTopicMap">
+                <ScalarProperty Name="SpecialTopicID" ColumnName="SpecialTopicID" />
+                <ScalarProperty Name="ContentArticleID" ColumnName="ContentArticleID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SortNumber" ColumnName="SortNumber" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDatetime" ColumnName="CreateDatetime" />
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="LastUpdateDatetime" ColumnName="LastUpdateDatetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentMapSpecialTopicMaps">
+            <EntityTypeMapping TypeName="kuokuoCMSContentDBModel.ContentMapSpecialTopicMap">
+              <MappingFragment StoreEntitySet="ContentMapSpecialTopicMap">
+                <ScalarProperty Name="SpecialTopicD" ColumnName="SpecialTopicD" />
+                <ScalarProperty Name="ContentMapID" ColumnName="ContentMapID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SortNumber" ColumnName="SortNumber" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDatetime" ColumnName="CreateDatetime" />
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="LastUpdateDatetime" ColumnName="LastUpdateDatetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContentVideoSpecialTopicMaps">
+            <EntityTypeMapping TypeName="kuokuoCMSContentDBModel.ContentVideoSpecialTopicMap">
+              <MappingFragment StoreEntitySet="ContentVideoSpecialTopicMap">
+                <ScalarProperty Name="SpecialTopicID" ColumnName="SpecialTopicID" />
+                <ScalarProperty Name="ContentVideoID" ColumnName="ContentVideoID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="SortNumber" ColumnName="SortNumber" />
+                <ScalarProperty Name="CreateUser" ColumnName="CreateUser" />
+                <ScalarProperty Name="CreateDatetime" ColumnName="CreateDatetime" />
+                <ScalarProperty Name="LastUpdateUser" ColumnName="LastUpdateUser" />
+                <ScalarProperty Name="LastUpdateDatetime" ColumnName="LastUpdateDatetime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="kuokuoCMSContentDBModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="kuokuoCMSContentDBModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="kuokuoCMSContentDBModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="kuokuoCMSContentDBModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="kuokuoCMSContentDBModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="kuokuoCMSContentDBModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="kuokuoCMSContentDBModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="kuokuoCMSContentDBModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="kuokuoCMSContentDBModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
